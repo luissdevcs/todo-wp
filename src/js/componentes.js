@@ -45,4 +45,60 @@ txtInput.addEventListener('keyup',( event ) => {
     }
 });
 
+// Agregar o quitar atributo "checked" en cada item de la todo list
 
+divTodoList.addEventListener( 'click', ( event ) => {
+    console.log('click');
+    // Para ver cual elemento en cliqueado
+    // console.log( event.target.localName);
+    
+    const nombreElemento = event.target.localName; // input, label y button
+
+    // Hacemos referencia también al elemento contenedor. En este caso el elemento contendor es el "li", por lo que ocupamos llamar al método "parentElement" dos veces. Esto nos permite acceder al "data-id" que necesitamos para identificar items únicos
+    const todoElemento   = event.target.parentElement.parentElement;
+
+    console.log( nombreElemento );
+    console.log( todoElemento );
+    
+    const todoId = todoElemento.getAttribute('data-id');
+    console.log( todoId );
+
+    if ( nombreElemento.includes( 'input' )){
+        todoList.marcarCompletado( todoId );
+
+        // Dado que el elemento se inicializa en false por defecto, podemos indicar que varie la clase, añadiendo "completed".
+        todoElemento.classList.toggle('completed');
+    }
+
+    console.log( todoList );
+
+});
+
+// Eliminar todo
+
+divTodoList.addEventListener( 'click', ( event ) => {
+    console.log('click');
+    // Para ver cual elemento en cliqueado
+    // console.log( event.target.localName);
+    
+    const nombreElemento = event.target.localName; // input, label y button
+
+    // Hacemos referencia también al elemento contenedor. En este caso el elemento contendor es el "li", por lo que ocupamos llamar al método "parentElement" dos veces. Esto nos permite acceder al "data-id" que necesitamos para identificar items únicos
+    const todoElemento   = event.target.parentElement.parentElement;
+
+    console.log( nombreElemento );
+    console.log( todoElemento );
+    
+    const todoId = todoElemento.getAttribute('data-id');
+    console.log( todoId );
+
+    if ( nombreElemento.includes( 'button' )){
+        todoList.eliminarTodo( todoId );
+
+        
+        
+    }
+
+    console.log( todoList );
+
+});

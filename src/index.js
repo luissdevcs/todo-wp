@@ -14,3 +14,13 @@ todoList.nuevoTodo( tarea );
 console.log( todoList );
 
 crearTodoHtml( tarea );
+
+
+// Marcar todo como completado
+
+// todoList.marcarCompletado( tarea.id );
+
+// Eliminar todo
+
+// todoList.eliminarTodo( tarea.id);
+console.log( todoList );
