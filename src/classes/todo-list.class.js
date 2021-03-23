@@ -15,9 +15,9 @@ export class TodoList {
     }
 
     eliminarTodo ( id ){
-        // console.log('Estoy eliminando el todo');
-        this.todos.pop ( id );
-        // console.log( `${ id } eliminado`);
+        
+        // this.todos.pop( id );
+        this.todos = this.todos.filter( todo => todo.id != id);
     }
 
     marcarCompletado( id ){

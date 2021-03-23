@@ -68,35 +68,9 @@ divTodoList.addEventListener( 'click', ( event ) => {
 
         // Dado que el elemento se inicializa en false por defecto, podemos indicar que varie la clase, añadiendo "completed".
         todoElemento.classList.toggle('completed');
-    }
-
-    console.log( todoList );
-
-});
-
-// Eliminar todo
-
-divTodoList.addEventListener( 'click', ( event ) => {
-    console.log('click');
-    // Para ver cual elemento en cliqueado
-    // console.log( event.target.localName);
-    
-    const nombreElemento = event.target.localName; // input, label y button
-
-    // Hacemos referencia también al elemento contenedor. En este caso el elemento contendor es el "li", por lo que ocupamos llamar al método "parentElement" dos veces. Esto nos permite acceder al "data-id" que necesitamos para identificar items únicos
-    const todoElemento   = event.target.parentElement.parentElement;
-
-    console.log( nombreElemento );
-    console.log( todoElemento );
-    
-    const todoId = todoElemento.getAttribute('data-id');
-    console.log( todoId );
-
-    if ( nombreElemento.includes( 'button' )){
-        todoList.eliminarTodo( todoId );
-
-        
-        
+    } else if ( nombreElemento.includes('button')){ // Borrar el todo
+        todoList.eliminarTodo ( todoId );
+        divTodoList.removeChild( todoElemento );
     }
 
     console.log( todoList );
