@@ -31,10 +31,9 @@ export class TodoList {
         }
     }
 
-    eliminarCompletado(){
-        
+    eliminarCompletados(){
+        this.todos = this.todos.filter( todo => !todo.completado);
+        console.log( this.todos );
     }
-
-
 
 }

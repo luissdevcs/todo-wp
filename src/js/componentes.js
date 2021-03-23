@@ -4,6 +4,7 @@ import { todoList } from '../index';
 // Referencias en el Html
 const divTodoList = document.querySelector('.todo-list');
 const txtInput    = document.querySelector('.new-todo');
+const btnBorrar = document.querySelector('.clear-completed');
 
 export  const crearTodoHtml = ( todo ) => {
 
@@ -74,5 +75,37 @@ divTodoList.addEventListener( 'click', ( event ) => {
     }
 
     console.log( todoList );
+
+});
+
+/* footerControlsTodoList.addEventListener( 'click', ( event ) => {
+  
+    const nombreElementoFooter = event.target.localName; // input, label y button
+    console.log( nombreElementoFooter );
+
+    if( nombreElementoFooter.includes('button')){
+
+        todoList.eliminarCompletado();
+
+    }        
+
+}); */
+
+btnBorrar.addEventListener( 'click', ( event) =>  {
+
+    // Podemos ser más eficientes si no usamos esta instrucción en otro lado*
+    todoList.eliminarCompletados();
+
+    for ( let i = divTodoList.children.length-1; i >= 0; i--){
+        const element = divTodoList.children[i];
+
+        console.log( element );
+
+        if( element.classList.contains('completed')){
+            divTodoList.removeChild( element );
+        }
+
+    }
+
 
 });
